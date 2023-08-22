@@ -14,7 +14,7 @@ export const ChatHistory = () => {
             href="/"
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "my-1 flex w-full items-center justify-start gap-2",
+              "my-1 flex w-full items-center justify-start gap-2 py-6"
             )}
           >
             <FiMessageSquare />
@@ -27,7 +27,7 @@ export const ChatHistory = () => {
             href="/"
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "my-1 flex w-full items-center justify-start gap-2",
+              "my-1 flex w-full items-center justify-start gap-2 py-6"
             )}
           >
             <FiMessageSquare />
@@ -39,7 +39,7 @@ export const ChatHistory = () => {
             href="/"
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "my-1 flex w-full items-center justify-start gap-2",
+              "my-1 flex w-full items-center justify-start gap-2 py-6"
             )}
           >
             <FiMessageSquare />
@@ -51,7 +51,7 @@ export const ChatHistory = () => {
             href="/"
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "my-1 flex w-full items-center justify-start gap-2",
+              "my-1 flex w-full items-center justify-start gap-2 py-6"
             )}
           >
             <FiMessageSquare /> Automated Fire Alarm System

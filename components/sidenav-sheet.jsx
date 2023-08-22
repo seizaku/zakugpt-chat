@@ -19,7 +19,7 @@ export function SheetSideNav() {
       </SheetTrigger>
       <SheetContent side="left" className="w-72 p-0">
         <SheetHeader className="p-2">
-          <Button variant="outline" className="w-full justify-start gap-2">
+          <Button variant="outline" className="w-full justify-start gap-2 py-6">
             <FiPlus />
             New Chat
           </Button>
