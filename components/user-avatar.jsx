@@ -9,7 +9,7 @@ const UserAvatar = ({ src, height, width, className }) => {
         height={height}
         width={width}
         className={cn(`min-h-[32px] min-w-[32px] rounded-md`, className)}
-        src={"https://avatars.githubusercontent.com/u/134750648?v=4"}
+        src={src}
         alt="user-avatar"
       />
       <AvatarFallback className="text-xs">A.I</AvatarFallback>
