@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider publishableKey="pk_test_Y2xlYXItaW1wLTc3LmNsZXJrLmFjY291bnRzLmRldiQ">
       <html lang="en">
         <body className={inter.className}>
+          <NextTopLoader />
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <main className="mx-auto">{children}</main>
           </ThemeProvider>
