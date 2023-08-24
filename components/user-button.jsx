@@ -2,6 +2,7 @@ import { CreditCard, LogOut, Settings, User } from "lucide-react";
 import UserAvatar from "@/components/user-avatar";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,14 +15,14 @@ import {
 import { currentUser, SignOutButton } from "@clerk/nextjs";
 
 export const UserButton = async () => {
-  const { username, imageUrl } = await currentUser();
+  const user = await currentUser();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-full justify-between gap-4 py-6">
           <figure className="flex items-center gap-4">
-            <UserAvatar width={32} height={32} src={imageUrl} />
-            {username.charAt(0).toUpperCase() + username.slice(1)}
+            <UserAvatar width={32} height={32} src={user?.imageUrl} />
+            {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
           </figure>
           <BiDotsHorizontalRounded />
         </Button>
@@ -30,9 +31,11 @@ export const UserButton = async () => {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
+          <DropdownMenuItem asChild>
+            <Link href="/auth/user-profile">
+              <User className="mr-2 h-4 w-4" />
+              <span>Profile</span>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <CreditCard className="mr-2 h-4 w-4" />
