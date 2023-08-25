@@ -32,7 +32,7 @@ const AuthProviderButtons = ({ children, method }) => {
     <section className="grid grid-cols-1 w-full gap-2">
       <Button
         variant="ghost"
-        className="flex w-full justify-start gap-4 text-xs sm:text-sm"
+        className="flex w-full justify-start gap-4 text-xs sm:text-sm py-6"
         onClick={(e) => OAuthProvider(e, method, "oauth_google")}
       >
         <BiLogoGoogle />
@@ -40,7 +40,7 @@ const AuthProviderButtons = ({ children, method }) => {
       </Button>
       <Button
         variant="ghost"
-        className="flex w-full justify-start gap-4 text-xs sm:text-sm"
+        className="flex w-full justify-start gap-4 text-xs sm:text-sm py-6"
         onClick={(e) => OAuthProvider(e, method, "oauth_github")}
       >
         <BiLogoGithub />

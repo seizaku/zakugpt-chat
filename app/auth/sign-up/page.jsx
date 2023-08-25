@@ -81,6 +81,7 @@ const AuthSignIn = () => {
                 Use your email address or use the OAuth <br /> providers below.
               </p>
               <Input
+                autoFocus
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Enter email address"
@@ -116,6 +117,7 @@ const AuthSignIn = () => {
                     complete your registration.
                   </p>
                   <Input
+                    autoFocus
                     onChange={(e) => setCode(e.target.value)}
                     type="text"
                     placeholder="Enter code"
