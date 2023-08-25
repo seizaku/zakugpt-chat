@@ -22,12 +22,12 @@ export const UserButton = async () => {
         <Button variant="ghost" className="w-full justify-between gap-4 py-6">
           <figure className="flex items-center gap-4">
             <UserAvatar width={32} height={32} src={user?.imageUrl} />
-            {user?.username.charAt(0).toUpperCase() + user?.username.slice(1)}
+            {`${user?.firstName} ${user?.lastName}`}
           </figure>
           <BiDotsHorizontalRounded />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-60">
+      <DropdownMenuContent className="w-60 dark:bg-zinc-900">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
