@@ -17,7 +17,10 @@ export function SheetSideNav() {
           <FiMenu />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-72 p-0 dark:bg-zinc-900">
+      <SheetContent
+        side="left"
+        className="w-72 p-0 dark:bg-zinc-900 rounded-r-2xl"
+      >
         <SheetHeader className="p-2">
           <Button variant="outline" className="w-full justify-start gap-2 py-6">
             <FiPlus />
