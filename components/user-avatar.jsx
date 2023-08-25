@@ -8,7 +8,7 @@ const UserAvatar = ({ src, height, width, className }) => {
       <AvatarImage
         height={height}
         width={width}
-        className={cn(`min-h-[32px] min-w-[32px] rounded-md`, className)}
+        className={cn(`min-h-[32px] min-w-[32px] rounded-xl`, className)}
         src={src}
         alt="user-avatar"
       />
