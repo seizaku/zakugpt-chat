@@ -21,34 +21,34 @@ export const UserButton = async () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-full justify-between gap-4 py-6">
           <figure className="flex items-center gap-4">
-            <UserAvatar width={32} height={32} src={user?.imageUrl} />
-            {`${user?.firstName} ${user?.lastName}`}
+            <UserAvatar width={36} height={36} src={user?.imageUrl} />
+            {`${user?.firstName} ${user?.lastName}` ? "" : "NULL"}
           </figure>
           <BiDotsHorizontalRounded />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-60 dark:bg-zinc-900">
+      <DropdownMenuContent className="w-60 dark:bg-zinc-900 p-3">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem asChild>
+          <DropdownMenuItem className="p-3" asChild>
             <Link href="/auth/user-profile">
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="p-3">
             <CreditCard className="mr-2 h-4 w-4" />
             <span>Billing</span>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="p-3">
             <Settings className="mr-2 h-4 w-4" />
             <span>Settings</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <SignOutButton>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="p-3">
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
           </DropdownMenuItem>
