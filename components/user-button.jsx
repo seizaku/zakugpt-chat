@@ -22,7 +22,7 @@ export const UserButton = async () => {
         <Button variant="ghost" className="w-full justify-between gap-4 py-6">
           <figure className="flex items-center gap-4">
             <UserAvatar width={36} height={36} src={user?.imageUrl} />
-            {`${user?.lastName ?? "HI"}`}
+            {`${user?.lastName ?? "User"}`}
           </figure>
           <BiDotsHorizontalRounded />
         </Button>
