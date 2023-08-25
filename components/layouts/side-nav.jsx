@@ -5,7 +5,7 @@ import SidenavFooter from "@/components/sidenav-footer";
 
 const SideNav = () => {
   return (
-    <aside className="fixed hidden h-screen max-h-screen w-72 flex-col border-r bg-background dark:bg-zinc-900 md:flex">
+    <aside className="fixed hidden h-screen max-h-screen w-72 flex-col border-r bg-background dark:bg-zinc-900 md:flex rounded-r-2xl">
       <ul className="mb-2 p-2">
         <li className="flex gap-2">
           <Button variant="outline" className="w-full justify-start gap-2 py-6">

@@ -3,7 +3,7 @@ import { FiSend } from "react-icons/fi";
 
 const ChatForm = () => {
   return (
-    <section className="fixed bottom-0 h-16 md:h-32 w-full border-t md:border-none md:bg-gradient-to-b from-transparent via-transparent to-zinc-100 dark:to-zinc-900 dark:bg-zinc-900 pt-6 md:dark:bg-transparent">
+    <section className="fixed bottom-0 h-16 md:h-32 rounded-t-2xl w-full border-t md:border-none md:bg-gradient-to-b from-transparent via-transparent to-zinc-100 dark:to-zinc-900 dark:bg-zinc-900 pt-6 md:dark:bg-transparent">
       <div className="flex h-full w-full items-center justify-center">
         <div className="flex h-16 mb-1 w-96 gap-2 px-2 md:mr-72 md:w-[50%] md:gap-0">
           <textarea
