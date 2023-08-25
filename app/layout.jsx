@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"], weight: "400" });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <main className="mx-auto">{children}</main>
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

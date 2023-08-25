@@ -9,7 +9,7 @@ import { BiLogoGoogle, BiLogoGithub } from "react-icons/bi";
 
 const AuthSignIn = () => {
   return (
-    <Container className="container flex h-screen w-full items-center justify-center bg-background">
+    <Container className="flex h-screen w-full items-center justify-center">
       <section className="text-center">
         <form
           action=""

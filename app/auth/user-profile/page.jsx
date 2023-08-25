@@ -3,8 +3,8 @@ import { UserProfile } from "@clerk/nextjs";
 
 const AuthUserProfile = () => {
   return (
-    <Container className="flex justify-center">
-      <UserProfile />;
+    <Container className="flex justify-center bg-zinc-900 h-screen">
+      <UserProfile />
     </Container>
   );
 };

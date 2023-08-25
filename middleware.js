@@ -12,7 +12,6 @@ export default authMiddleware({
     }
     if (auth?.userId && auth?.isPublicRoute) {
       const homeUrl = new URL("/", req.url);
-      console.log(homeUrl);
       return NextResponse.redirect(homeUrl); 
     }
   },

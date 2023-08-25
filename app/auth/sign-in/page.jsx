@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/components/layouts/container";
-import AuthForm from "@/components/layouts/auth-form";
+import AuthFormContainer from "@/components/layouts/form-container";
 import AppLogo from "@/components/app-logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,15 +11,32 @@ import AuthProviderButtons from "@/components/provider-button";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSignIn } from "@clerk/nextjs";
+import { useToast } from "@/components/ui/use-toast";
 
 const AuthSignIn = () => {
-  const router = useRouter();
   const { isLoaded, signIn, setActive } = useSignIn();
   const [email, setEmail] = useState("");
   const [pendingVerification, setpendingVerification] = useState(false);
   const [code, setCode] = useState();
+  const router = useRouter();
+  const { toast } = useToast();
 
-  const hanldeSubmit = async (e) => {
+  const displayError = (error) => {
+    toast({
+      variant: "destructive",
+      title: "Authentication Failed",
+      description: error.errors[0].longMessage,
+    });
+  };
+  const displaySuccess = () => {
+    toast({
+      className: "bg-green-600 text-white",
+      title: "Login Successfully!",
+      description: "Redirecting user to homepage..",
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isLoaded) return;
     await signIn
@@ -35,10 +52,10 @@ const AuthSignIn = () => {
           emailAddressId,
         });
       })
-      .then((res) => {
+      .then(() => {
         setpendingVerification(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => displayError(err));
   };
 
   const verifyEmail = async (e) => {
@@ -51,41 +68,36 @@ const AuthSignIn = () => {
         code,
       })
       .then(async (res) => {
+        displaySuccess();
         await setActive({ session: res.createdSessionId });
         router.push("/");
       })
       .catch((err) => {
-        console.log(err);
+        displayError(err);
       });
   };
 
   return (
-    <Container className="container flex h-screen w-full items-center justify-center bg-background">
+    <Container className="flex h-screen w-full items-center justify-center bg-background">
       <section className="text-center">
         {!pendingVerification && (
-          <AuthForm onSubmit={hanldeSubmit}>
-            <AppLogo />
-            <h3 className="pt-4 font-semibold text-md">
-              Sign in to ZakuGPT AI
-            </h3>
-            <p className="pb-4 text-center text-sm">
-              Use your email address or use the OAuth <br /> providers below.
-            </p>
-            <Input
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Enter email address"
-              required
-            />
-            <Button className="w-full">
-              {pendingVerification ? (
-                <span className="animate-spin">
-                  <BiLoaderAlt />
-                </span>
-              ) : (
-                "Continue"
-              )}
-            </Button>
+          <AuthFormContainer>
+            <form onSubmit={handleSubmit}>
+              <AppLogo className="mx-auto" />
+              <h3 className="pt-4 font-semibold text-md">
+                Sign in to ZakuGPT AI
+              </h3>
+              <p className="pb-4 text-center text-sm">
+                Use your email address or use the OAuth <br /> providers below.
+              </p>
+              <Input
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Enter email address"
+                required
+              />
+              <Button className="w-full my-2">Continue</Button>
+            </form>
             <small className="text-xs">
               {" Don't have an account? "}
               <Link className="font-bold" href="/auth/sign-up">
@@ -97,12 +109,12 @@ const AuthSignIn = () => {
               <span className="text-xs ">OR</span>
               <Separator />
             </figure>
-            <AuthProviderButtons />
-          </AuthForm>
+            <AuthProviderButtons method={"sign-in"} />
+          </AuthFormContainer>
         )}
         {pendingVerification && (
-          <AuthForm onSubmit={verifyEmail}>
-            <>
+          <form onSubmit={verifyEmail}>
+            <AuthFormContainer>
               <AppLogo />
               <h1 className="text-xl font-semibold">
                 Verify Your Email Address
@@ -117,8 +129,8 @@ const AuthSignIn = () => {
                 placeholder="Enter code"
               />
               <Button className="w-full">Verify Email</Button>
-            </>
-          </AuthForm>
+            </AuthFormContainer>
+          </form>
         )}
       </section>
     </Container>

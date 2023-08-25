@@ -1,40 +1,52 @@
 import { Button } from "@/components/ui/button";
-import { useSignIn } from "@clerk/nextjs";
+import { useSignIn, useSignUp } from "@clerk/nextjs";
 import { BiLogoGoogle, BiLogoGithub } from "react-icons/bi";
 
-const AuthProviderButtons = ({ children, ...props }) => {
+const AuthProviderButtons = ({ children, method }) => {
   const { isLoaded, signIn } = useSignIn();
-  const OAuthProvider = (e, strategy) => {
-    e.preventDefault();
+  const { signUp } = useSignUp();
+
+  const OAuthProvider = (e, method, strategy) => {
     if (!isLoaded) return;
-    const signInOAuth = (strategy) => {
-      signIn.authenticateWithRedirect({
-        strategy,
-        redirectUrl: "/sso-callback",
-        redirectUrlComplete: "/",
-      });
+    const OAuth = (method, strategy) => {
+      switch (method) {
+        case "sign-in":
+          signIn.authenticateWithRedirect({
+            strategy,
+            redirectUrl: "/sso-callback",
+            redirectUrlComplete: "/",
+          });
+          break;
+        case "sign-up":
+          signUp.authenticateWithRedirect({
+            strategy,
+            redirectUrl: "/sso-callback",
+            redirectUrlComplete: "/",
+          });
+          break;
+      }
     };
-    signInOAuth(strategy);
+    OAuth(method, strategy);
   };
   return (
-    <>
+    <section className="grid grid-cols-1 w-full gap-2">
       <Button
-        variant="outline"
+        variant="ghost"
         className="flex w-full justify-start gap-4 text-xs sm:text-sm"
-        onClick={(e) => OAuthProvider(e, "oauth_google")}
+        onClick={(e) => OAuthProvider(e, method, "oauth_google")}
       >
         <BiLogoGoogle />
         Continue with Google
       </Button>
       <Button
-        variant="outline"
+        variant="ghost"
         className="flex w-full justify-start gap-4 text-xs sm:text-sm"
-        onClick={(e) => OAuthProvider(e, "oauth_github")}
+        onClick={(e) => OAuthProvider(e, method, "oauth_github")}
       >
         <BiLogoGithub />
         Continue with Github
       </Button>
-    </>
+    </section>
   );
 };
 
