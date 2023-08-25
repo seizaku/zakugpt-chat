@@ -4,7 +4,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const Header = ({ children, className }) => {
   return (
-    <header className="hidden h-16 md:flex pt-2 md:pt-0 items-center justify-between border-b px-4 rounded-b-2xl">
+    <header className="h-14 flex pt-2 md:pt-0 items-center justify-between border-b px-4">
       <ModeToggle />
       <h4 className="self-center text-sm font-medium text-foreground">
         NextGPT AI {`(GPT 3.5)`}
