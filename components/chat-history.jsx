@@ -8,8 +8,8 @@ export const ChatHistory = () => {
   return (
     <ScrollArea className="max-w-72 w-72 p-2">
       <ul>
-        <h6 className="px-4 py-2 text-xs font-medium">Today</h6>
-        <li>
+        <h6 className="px-4 py-2 text-xs font-medium">Under Development.</h6>
+        {/* <li>
           <Link
             href="/"
             className={cn(
@@ -56,7 +56,7 @@ export const ChatHistory = () => {
           >
             <FiMessageSquare /> Automated Fire Alarm System
           </Link>
-        </li>
+        </li> */}
       </ul>
     </ScrollArea>
   );

@@ -7,7 +7,7 @@ const Header = ({ children, className }) => {
     <header className="h-14 flex pt-2 md:pt-0 items-center justify-between border-b px-4">
       <ModeToggle />
       <h4 className="self-center text-sm font-medium text-foreground">
-        NextGPT AI {`(GPT 3.5)`}
+        ZakuChat AI {`(GPT 3.5)`}
       </h4>
       <Button variant="ghost">
         <FiShare2 />
