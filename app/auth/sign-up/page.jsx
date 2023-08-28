@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSignUp } from "@clerk/nextjs";
 import AppLogo from "@/components/app-logo";
-import AuthProviderButtons from "@/components/provider-button";
+import AuthProviderButtons from "@/components/oauth-providers";
 import { useToast } from "@/components/ui/use-toast";
 
 const AuthSignIn = () => {

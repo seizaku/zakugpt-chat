@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { BiLoaderAlt } from "react-icons/bi";
-import AuthProviderButtons from "@/components/provider-button";
+import AuthProviderButtons from "@/components/oauth-providers";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSignIn } from "@clerk/nextjs";
