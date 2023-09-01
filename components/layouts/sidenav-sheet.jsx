@@ -6,8 +6,10 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ChatHistory } from "@/components/chat-history";
-import SidenavFooter from "@/components/sidenav-footer";
+import { ChatHistory } from "@/components/layouts/chat-history";
+import { UserButton } from "@/components/user-button";
+import { Separator } from "@/components/ui/separator";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function SheetSideNav() {
   return (
@@ -22,16 +24,22 @@ export function SheetSideNav() {
         className="w-72 p-0 dark:bg-zinc-900 rounded-r-xl"
       >
         <SheetHeader className="p-2">
-          <Button variant="outline" className="w-full justify-start gap-2 py-6">
-            <FiPlus />
-            New Chat
-          </Button>
+          <section className="flex w-full gap-2">
+            <Button
+              variant="outline"
+              className="w-full justify-start gap-2 py-6"
+            >
+              <FiPlus />
+              New Chat
+            </Button>
+            <ModeToggle />
+          </section>
         </SheetHeader>
         <nav className="h-full">
           <ChatHistory />
-          <section className="p-2">
-            <SidenavFooter />
-          </section>
+          <footer className="absolute bottom-0 w-full py-3 px-2">
+            <UserButton />
+          </footer>
         </nav>
       </SheetContent>
     </Sheet>

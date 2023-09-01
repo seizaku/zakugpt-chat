@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FiPlus } from "react-icons/fi";
-import { SheetSideNav } from "@/components/sidenav-sheet";
+import { SheetSideNav } from "@/components/layouts/sidenav-sheet";
 import AppIcon from "@/components/app-icon";
 const TopNav = () => {
   return (

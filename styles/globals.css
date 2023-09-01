@@ -74,10 +74,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.paragraph-text:first-child {
-  margin-top: 0px;
-}
-.paragraph-text:not(:first-child) {
-  margin-bottom: 20px;
-}

@@ -1,9 +1,9 @@
 import Container from "@/components/layouts/container";
 import SideNav from "@/components/layouts/side-nav";
 import TopNav from "@/components/layouts/top-nav";
-import Header from "@/components/layouts/chat-header";
+import Header from "@/components/chat-header";
 import MessageLayout from "@/components/layouts/message-layout";
-import ChatForm from "@/components/layouts/chat-form";
+import PromptForm from "@/components/layouts/prompt-form";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <Container className="mt-12 h-screen w-full bg-background md:ml-72 md:mt-auto">
         <Header />
         <MessageLayout />
-        <ChatForm />
+        <PromptForm />
       </Container>
     </Container>
   );
