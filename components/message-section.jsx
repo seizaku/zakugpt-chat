@@ -46,7 +46,7 @@ const MessageSection = ({ prompt, response, image }) => {
 					></article>
 					<ul className="my-4 flex">
 						<li>
-							<Button variant="ghost" size="icon">
+							<Button onClick={navigator.clipboard.writeText(response)} variant="ghost" size="icon">
 								<FaClipboard className="dark:text-zinc-600 " />
 							</Button>
 						</li>
