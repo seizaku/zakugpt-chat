@@ -2,8 +2,19 @@ import { Separator } from '@/components/ui/separator'
 import { FaAlignLeft, FaClipboard, FaEdit, FaDownload, FaImage } from 'react-icons/fa'
 import { Button, buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
+import { useToast } from '@/components/ui/use-toast'
 
 const MessageSection = ({ prompt, response, image }) => {
+	const { toast } = useToast()
+	const handleCopy = () => {
+		navigator.clipboard.writeText(response)
+		toast({
+			className: 'dark:text-zinc-950 text-white bg-zinc-800 dark:bg-white',
+			title: 'Text copied to clipboard.',
+			description: 'Hoyy ma plagiarized ka! Paraphrase moyan.'
+		})
+	}
+
 	return (
 		<section className={`container mx-auto mt-6 w-full flex-1 gap-4 xl:w-3/6`}>
 			{prompt.includes('image:') && (
@@ -46,7 +57,7 @@ const MessageSection = ({ prompt, response, image }) => {
 					></article>
 					<ul className="my-4 flex">
 						<li>
-							<Button onClick={navigator.clipboard.writeText(response)} variant="ghost" size="icon">
+							<Button onClick={handleCopy} variant="ghost" size="icon">
 								<FaClipboard className="dark:text-zinc-600 " />
 							</Button>
 						</li>
