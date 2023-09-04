@@ -1,78 +1,66 @@
-import { Separator } from "@/components/ui/separator";
-import {
-  FaAlignLeft,
-  FaClipboard,
-  FaEdit,
-  FaDownload,
-  FaImage,
-} from "react-icons/fa";
-import { Button, buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import { Separator } from '@/components/ui/separator'
+import { FaAlignLeft, FaClipboard, FaEdit, FaDownload, FaImage } from 'react-icons/fa'
+import { Button, buttonVariants } from '@/components/ui/button'
+import Link from 'next/link'
 
 const MessageSection = ({ prompt, response, image }) => {
-  return (
-    <section className={`container mx-auto mt-6 w-full flex-1 gap-4 xl:w-3/6`}>
-      {prompt.includes("image:") && (
-        <>
-          <h1 className="text-3xl mb-6 font-bold">
-            {prompt.replace("image:", "")}
-          </h1>
-          <h5 className="flex items-center gap-3 mb-4 font-bold">
-            <FaImage /> AI Image Result
-          </h5>
-          <article className="w-full">
-            <div className="group relative">
-              <img
-                src={image}
-                alt={prompt}
-                className="rounded-md object-cover w-fit"
-              />
-              <div className="absolute inset-0 h-full w-full opacity-0 ease-in-out transition-all cursor-pointer"></div>
-            </div>
-          </article>
-          <ul className="flex my-4">
-            <li>
-              <Link
-                href={image}
-                className={`${buttonVariants({
-                  variant: "outline",
-                })} flex gap-2`}
-                download={"hercai-v2.png"}
-              >
-                <FaDownload className="dark:text-zinc-600 " />
-                Download Image
-              </Link>
-            </li>
-          </ul>
-        </>
-      )}
-      {!prompt.includes("image:") && (
-        <>
-          <h1 className="text-3xl mb-6 font-bold">{prompt}</h1>
-          <h5 className="flex items-center gap-3 mb-4 font-bold">
-            <FaAlignLeft /> Answer
-          </h5>
-          <article
-            className="w-full whitespace-pre-line"
-            dangerouslySetInnerHTML={{ __html: response }}
-          ></article>
-          <ul className="flex my-4">
-            <li>
-              <Button variant="ghost" size="icon">
-                <FaClipboard className="dark:text-zinc-600 " />
-              </Button>
-            </li>
-            <li>
-              <Button variant="ghost" size="icon">
-                <FaEdit className="dark:text-zinc-600 " />
-              </Button>
-            </li>
-          </ul>
-        </>
-      )}
-      <Separator />
-    </section>
-  );
-};
+	return (
+		<section className={`container mx-auto mt-6 w-full flex-1 gap-4 xl:w-3/6`}>
+			{prompt.includes('image:') && (
+				<>
+					<h1 className="mb-6 text-3xl font-bold">{prompt.replace('image:', '')}</h1>
+					<h5 className="mb-4 flex items-center gap-3 font-bold">
+						<FaImage /> AI Image Result
+					</h5>
+					<article className="w-full">
+						<div className="group relative">
+							<img src={image} alt={prompt} className="w-fit rounded-md object-cover" />
+							<div className="absolute inset-0 h-full w-full cursor-pointer opacity-0 transition-all ease-in-out"></div>
+						</div>
+					</article>
+					<ul className="my-4 flex">
+						<li>
+							<Link
+								href={image}
+								className={`${buttonVariants({
+									variant: 'outline'
+								})} flex gap-2`}
+								download={'hercai-v2.png'}
+							>
+								<FaDownload className="dark:text-zinc-600 " />
+								Download Image
+							</Link>
+						</li>
+					</ul>
+				</>
+			)}
+			{!prompt.includes('image:') && (
+				<>
+					<h1 className="mb-6 text-3xl font-bold">{prompt}</h1>
+					<h5 className="mb-4 flex items-center gap-3 font-bold">
+						<FaAlignLeft /> Answer
+					</h5>
+					<article
+						className="w-full whitespace-pre-line"
+						dangerouslySetInnerHTML={{ __html: response }}
+					></article>
+					<ul className="my-4 flex">
+						<li>
+							<Button variant="ghost" size="icon">
+								<FaClipboard className="dark:text-zinc-600 " />
+							</Button>
+						</li>
+						<li>
+							<Button variant="ghost" size="icon">
+								<FaEdit className="dark:text-zinc-600 " />
+							</Button>
+						</li>
+					</ul>
+				</>
+			)}
+			<Separator />
+		</section>
+	)
+}
 
-export default MessageSection;
+export default MessageSection

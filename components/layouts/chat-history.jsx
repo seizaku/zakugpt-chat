@@ -1,13 +1,13 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import Link from "next/link";
-import { FiMessageSquare } from "react-icons/fi";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
+import { ScrollArea } from '@/components/ui/scroll-area'
+import Link from 'next/link'
+import { FiMessageSquare } from 'react-icons/fi'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '../ui/button'
 
 export const ChatHistory = () => {
-  return (
-    <ScrollArea className="max-w-72 w-72 p-2">
-      {/* <ul>
+	return (
+		<ScrollArea className="max-w-72 w-72 p-2">
+			{/* <ul>
         <h6 className="px-4 py-2 text-xs font-medium">Today</h6>
         <li>
           <Link
@@ -58,6 +58,6 @@ export const ChatHistory = () => {
           </Link>
         </li>
       </ul> */}
-    </ScrollArea>
-  );
-};
+		</ScrollArea>
+	)
+}
